@@ -5,7 +5,6 @@ const CoursesPage = () => {
     <div>
       <Link href={"/teacher/create"}>
         <Button>New Course</Button>
-        
       </Link>
     </div>
   );

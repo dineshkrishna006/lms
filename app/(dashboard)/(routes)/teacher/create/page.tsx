@@ -35,20 +35,20 @@ const CreatePage = () => {
   const { isSubmitting, isValid } = form.formState;
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    // console.log(values);
+    console.log(values);
     try {
       const response = await axios.post("/api/courses", values);
       router.push(`/teacher/courses/${response.data.id}`);
       toast.success("Submitted successfully!");
-      console.log(response.data);
+      // console.log(response.data);
     } catch {
       toast.error("Something went wrong");
     }
   };
 
   return (
-    <div className="max-w-5xl mx-auto flex md:items-center md:justify-center h-full p-6">
-      <div>
+    <div className="max-w-5xl mx-auto flex-col  md:flex  md:items-center md:justify-center  md:h-full p-6">
+      <div className="pt-[60px] md:pt-0">
         <h1 className="text-2xl">Name your Course</h1>
         <p className="text-sm text-slate-600">
           What would you like to name your course? Don&apos;t worry, you can
@@ -71,11 +71,15 @@ const CreatePage = () => {
                       placeholder="e.g 'Advanced Web Development'"
                       {...field}
                     />
+                    
+                    
                   </FormControl>
+                 
                   <FormDescription>
                     What will you teach in this course?
                   </FormDescription>
                 </FormItem>
+                
               )}
             />
             <div className="flex items-center gap-x-2">
